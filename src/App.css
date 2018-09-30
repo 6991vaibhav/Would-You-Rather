@@ -1,0 +1,290 @@
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.header-menu {
+  cursor: pointer;
+}
+
+.login-page{
+  margin: 0 auto;
+  padding: 10px;
+  height: -webkit-fill-available;
+  background-repeat: no-repeat;
+  background-image: url("https://i.ytimg.com/vi/FPnWwY0Hjo4/maxresdefault.jpg");
+}
+
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 15px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1a1313eb;
+  margin: auto;
+}
+
+.login-form {
+  padding: 5px;
+  margin :auto;
+  text-align: center;
+  top: 10px;
+  position: relative;
+}
+.sign-in-title{
+  color: lawngreen;
+}
+
+.btn {
+  text-transform: uppercase;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 120px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  border-color: rgba(0,0,0,.5);
+  text-decoration: none;
+  color: white;
+  background-color: rgb(14, 50, 82);
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.dropdown-list {
+  width: 150px;
+  height: 30px;
+  border-radius:10px;
+}
+
+.dropdown-list:hover {
+  border-color: rgba(0,0,0,.5);
+  text-decoration: none;
+  border-radius:10px;
+  background-color: aliceblue;
+}
+
+.tabs {
+  border-radius: 10px;
+  font-weight: bold;
+  margin:5px;
+}
+
+.tabs:hover {
+  background-color: grey;
+  color: white;
+}
+
+.nav{
+  margin: 0 auto;
+  padding: 10px;
+  position: sticky;
+  top: 1px;
+}
+
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(81, 209, 85);
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.content {
+  margin: 50px 0px 0px 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+.poll {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.poll-info {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio {
+  text-align: left;
+  size: 50px;
+}
+
+.btn-group button {
+  background-color: rgb(148, 192, 150); /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: rgb(81, 209, 85);
+}
+
+.new-poll {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.textInput {
+  border-radius: 4px;
+  border: 1px solid #dad7d7;
+  padding: 10px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.leaderBoard {
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.leaderBoard-info {
+  text-align: left;
+  margin-left: 5px;
+}
+
+.option {
+  border: 1px solid black;
+  margin-right: 2px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.question-info {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+}
+
+.selected-option {
+  background: yellowgreen;
+}
+
+
+
+
