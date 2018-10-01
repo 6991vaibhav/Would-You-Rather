@@ -5,22 +5,11 @@ import { handleInitialData } from '../actions/shared'
 
 class Poll extends Component {
 
-    state = {
-        selectedOption: ''
-    }
-
-    handleOnChange = (e) => {
-        e.preventDefault();
-        this.setState(() => ({
-            selectedOption: e.target.value
-        }))
-    }
-
     render(){
-        const { question, user, authedUser } = this.props;
-        if(question === null){
-            return (<p>This poll doesn't exist</p>)
-        }
+        const { question } = this.props;
+        // if(question === null){
+        //     return (<p>This poll doesn't exist</p>)
+        // }
         
         const { id, optionOne, optionTwo } = question
         return (
@@ -34,20 +23,11 @@ class Poll extends Component {
     }
 }
 
-function mapStateToProps({ users, questions, authedUser }, { id }) {
-    const question = questions[id]
-    const user = question ? users[question.author] : null
+function mapStateToProps({ questions }, { id }) {
+    const question = questions[id];
     return {
-        authedUser,
-        question,
-        user
+        question
     }
 }
-
-// function mapDispatchToProps(dispatch){
-//     return {
-//         dispatch
-//     }
-// }
 
 export default withRouter(connect(mapStateToProps)(Poll));
