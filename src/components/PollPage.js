@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import Poll from './Poll'
 import Option from './Option'
+import NotFound from './NotFound'
 import {handleAnswerQuestion} from '../actions/questions'
 
 
@@ -16,7 +17,9 @@ class PollPage extends Component {
         const noOfQuestionsAsked = user.questions.length;
         const noOfQuestionsAnswered = Object.keys(user.answers).length
         return (
-            <div className="content">
+            <Fragment> 
+            {question ?
+           ( <div className="content">
             <h2>Would You Rather</h2>
                 <div className='question-info'>
                     <img 
@@ -29,7 +32,9 @@ class PollPage extends Component {
                     <Option questionId={question.id} optionName="optionOne" onClick={this.handleVote}/>
                     <Option questionId={question.id} optionName="optionTwo" onClick={this.handleVote}/>
                 </div>
-            </div>
+            </div> ) :
+            <NotFound />}
+            </Fragment>
         )
     }
 }

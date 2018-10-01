@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/login'
 
@@ -15,7 +15,7 @@ class Login extends Component {
         e.preventDefault();
         if(this.state.user !== ''){
             this.props.dispatch(setAuthedUser(this.state.user))
-            this.props.history.push('/home')
+            this.setState(() => ({isAuthenticated: true}))
         }
     }
 
@@ -28,6 +28,13 @@ class Login extends Component {
 
     render(){
         const { users } = this.props;
+        const {from} = this.props.location.state || {from: {pathname: '/home'}}
+        
+                const {isAuthenticated} = this.state
+        
+                if (isAuthenticated) {
+                    return <Redirect to={from}/>
+                }
         return (
             <div className="login-page">
                 <div className="login-box">

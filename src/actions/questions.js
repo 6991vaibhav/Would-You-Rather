@@ -1,6 +1,5 @@
-import { _getQuestions, _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
+import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading';
-import { handleInitialData } from './shared'
 import { updateUser } from './users'
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS"
@@ -36,7 +35,7 @@ export function handleAdd({ optionOneText, optionTwoText }) {
             optionOneText,
             optionTwoText,
             author: authedUser
-        }) .then((question) => {
+        }).then((question) => {
             dispatch(addQuestion(question))
             dispatch(hideLoading())
         })
@@ -49,9 +48,8 @@ export function handleAnswerQuestion(qid, answer) {
         dispatch(showLoading())
         return _saveQuestionAnswer({authedUser, qid, answer})
             .then(() => {
-                dispatch(updateUser({authedUser, qid, answer}))
                 dispatch(updateQuestion({authedUser, qid, answer}))
-                dispatch(handleInitialData())
+                dispatch(updateUser({authedUser, qid, answer}))
                 dispatch(hideLoading())
             })
     }

@@ -11,7 +11,6 @@ export default function users(state = {}, action){
         const authedUser = action.updatedUser.authedUser
         const qid = action.updatedUser.qid
         const answer = action.updatedUser.answer
-        console.log("state after save: ", state)
             return {
                 ...state,
                 [authedUser]: {

@@ -6,22 +6,31 @@ import { handleAdd } from '../actions/questions'
 class NewPoll extends Component {
 
 state = {
+    optionOneText: '',
+    optionTwoText: '',
     toHome: false
+}
+
+handleChange = (e) => {
+    const {value, id} = e.target
+    this.setState(() => ({[id]: value}))
 }
 
 handleSubmit = (e) => {
     e.preventDefault();
-    const optionOneText = this.optionOneText.value
-    const optionTwoText = this.optionTwoText.value
+
+    const {optionOneText, optionTwoText } = this.state;
     this.props.dispatch(handleAdd({ optionOneText, optionTwoText }))
 
     this.setState(() => ({
-        toHome: true
+        toHome: true,
+        optionOneText: '',
+        optionTwoText: ''
     }))
 }
 
     render() {
-        const { toHome } = this.state
+        const { optionOneText, optionTwoText, toHome } = this.state
         if(toHome === true){
             return (<Redirect to='/home' />)
         }
@@ -31,15 +40,23 @@ handleSubmit = (e) => {
                 <form className='new-poll' onSubmit={this.handleSubmit}>
                     <input 
                         type='text'
-                        ref={(opt) => {this.optionOneText = opt}}
+                        id='optionOneText'
                         placeholder="Enter Option 1" 
-                        className='textInput' />
+                        className='textInput'
+                        onChange={this.handleChange}/>
                     <input 
                         type='text'
-                        ref={(opt) => {this.optionTwoText = opt}}
+                        id='optionTwoText'
                         placeholder="Enter Option 2" 
-                        className='textInput' />
-                    <button type='submit' className='btn'>Add</button>
+                        className='textInput'
+                        onChange={this.handleChange}/>
+                    <button 
+                        disabled={optionOneText === '' && optionTwoText === ''} 
+                        type='submit' 
+                        className='btn'
+                    >
+                    Add
+                    </button>
                 </form>
             </div>
         )
